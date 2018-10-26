@@ -1,0 +1,28 @@
+body{background-image: url(topography/topography.png);
+padding: 0, 10%;}
+
+h1 {font-size: 40px;;
+font-family: 'Oswald', sans-serif;}
+
+h2 {color: deeppink}
+
+h3 {text-align: center}
+
+h4 {text-align: center}
+
+li {display: inline;
+color: crimson}
+
+ul {background: grey;
+padding: 10px 0}
+
+.aha {padding-left: 800px;
+height: 30px;
+text-transform: uppercase}
+
+.p {font-family: consolas;
+font-size: 15px}
+
+.navi {color: hotpink}
+
+.back {padding: 0% 10%}
