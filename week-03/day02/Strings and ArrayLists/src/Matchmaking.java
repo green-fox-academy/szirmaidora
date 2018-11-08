@@ -17,8 +17,7 @@ public class Matchmaking {
             listx.add(list1.get(i));
             listx.add(list2.get(i));
         }
-        System.out.println(listx);
-
+        return listx;
     }
     }
 

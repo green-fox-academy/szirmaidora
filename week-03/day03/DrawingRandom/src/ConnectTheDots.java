@@ -1,6 +1,9 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -13,11 +16,26 @@ public class ConnectTheDots {
         // Connect these: {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70},
         // {120, 100}, {85, 130}, {50, 100}}
 
-       // public static void TheDots(Array<int> MyArray Graphics graphics) {
+        // public static void TheDots(Array<int> MyArray Graphics graphics) {
+        //  graphics.drawLine(10,10,290,10);
+
+        int[][] myArray1 = {{10, 10}, {290, 10}, {290, 290}, {10, 290}};
+        int[][] myArray2 = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
+        Connect(myArray1, graphics);
+        Connect(myArray2, graphics);
+    }
 
 
+    public static void Connect(int[][] Dots, Graphics graphics) {
+
+        for (int i = 0; i < Dots.length - 1; i++) {
+
+            graphics.drawLine(Dots[i][0], Dots[i][1], Dots[i + 1][0], Dots[i + 1][1]);
+        }
+        graphics.drawLine(Dots[0][0], Dots[0][1], Dots[Dots.length - 1][0], Dots[Dots.length - 1][1]);
 
     }
+
 
     // Don't touch the code below
     static int WIDTH = 320;
