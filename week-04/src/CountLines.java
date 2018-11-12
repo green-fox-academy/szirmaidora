@@ -11,9 +11,7 @@ public class CountLines {
     public static void main(String[] args) {
         String lines = "my-file.txt";
         System.out.println(numberOfLines(lines));
-
     }
-
 
     public static int numberOfLines(String filename) {
         int number = 0;
