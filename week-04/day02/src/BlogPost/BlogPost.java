@@ -12,4 +12,14 @@ public class BlogPost {
         this.text = text;
         this.publicationDate = publicationDate;
     }
+
+    @Override
+    public String toString() {
+        return "BlogPost{" +
+                "authorName='" + authorName + '\'' +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", publicationDate='" + publicationDate + '\'' +
+                '}';
+    }
 }

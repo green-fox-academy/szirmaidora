@@ -10,6 +10,7 @@ public class DiceSet {
 // Your task is to roll the dices until all of the dices are 6
     int[] dice = new int[6];
 
+
     public int[] roll() {
         for (int i = 0; i < dice.length; i++) {
             dice[i] = (int) (Math.random() * 6) + 1;
@@ -25,6 +26,7 @@ public class DiceSet {
         return dice[i];
     }
 
+
     public void reroll() {
         for (int i = 0; i < dice.length; i++) {
             dice[i] = (int) (Math.random() * 6) + 1;
@@ -34,6 +36,8 @@ public class DiceSet {
     public void reroll(int k) {
         dice[k] = (int) (Math.random() * 6) + 1;
     }
+
+
 
     public static void main(String[] args) {
         DiceSet diceSet = new DiceSet();
@@ -46,6 +50,12 @@ public class DiceSet {
         diceSet.reroll(4);
         diceSet.getCurrent(); */
         diceSet.roll();
+        for (int i = 0; i < diceSet.dice.length; i++) {
+            while (diceSet.dice[i] != 6) {
+                diceSet.reroll(i);
+            }
+
+        }
 
 
     }
