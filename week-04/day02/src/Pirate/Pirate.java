@@ -1,11 +1,14 @@
 package Pirate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Pirate {
     private static final Random RANDOM = new Random();
     boolean dead = false;
     int intoxication = 0;
+
 
     public void drinkSomeRum() {
         if (dead) {
@@ -28,13 +31,11 @@ public class Pirate {
     public void die() {
         dead = true;
     }
-    public void add () {
 
-    }
 
     public void brawl(Pirate opponent) {
         int chance = 0;
-        if (!opponent.dead) {
+        if (!opponent.dead && !this.dead) {
             chance = RANDOM.nextInt(3) + 1;
             if (chance == 1) {
                 opponent.die();

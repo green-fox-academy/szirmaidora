@@ -34,23 +34,20 @@ public class Lottery {
             row = numbers.get(i);
             for (int j = 11; j < 16; j++) {
                 numbersString.add(row.split(";")[j]);
-
             }
         }
+
         List<Integer> numbersInt = new ArrayList<>();
 
         for (int i = 0; i < numbersString.size(); i++) {
 
             numbersInt.add(Integer.parseInt(numbersString.get(i)));
-            System.out.println(numbersInt.get(i));
-
-
         }
+
         for (int i = 0; i < numbersInt.size(); i++) {
             for (int j = 0; j < 90; j++) {
                 if (numbersInt.get(i) == j){
                     frequency[j][1] += 1;
-
                 }
 
             }
@@ -59,8 +56,6 @@ public class Lottery {
         List <Integer> numberofEl = new ArrayList<>();
         for (int i = 0; i < frequency.length; i++) {
             numberofEl.add(frequency [i] [1]);
-
-
         }
 
         for (int i = 0; i < 5; i++) {
