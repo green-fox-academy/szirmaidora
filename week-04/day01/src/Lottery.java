@@ -63,9 +63,14 @@ public class Lottery {
 
         }
 
+        for (int i = 0; i < 5; i++) {
 
-        System.out.println(Collections.max(numberofEl));
-        System.out.println();
+
+            System.out.println(numberofEl.indexOf(Collections.max(numberofEl)));
+            System.out.println(Collections.max(numberofEl));
+            numberofEl.set(numberofEl.indexOf(Collections.max(numberofEl)), 0);
+            System.out.println();
+        }
         for (int i = 0; i < frequency.length; i++) {
 
            // System.out.println((frequency[i][0])+1 + " " +  frequency[i][1]);
@@ -73,7 +78,12 @@ public class Lottery {
 
 
 
+
        // System.out.println(numbersString);
         return numbersString;
+
+
+
     }
+
 }
