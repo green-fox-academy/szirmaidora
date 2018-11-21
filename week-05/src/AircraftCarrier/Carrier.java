@@ -26,26 +26,27 @@ public class Carrier {
     }
 
     public void fill() {
-        if (ammoCarr > ammoNeeded()) {
-            for (Aircraft ind : carrier) {
-                if (ind.ammoStore < ind.maxAmmo) {
-                    ammoCarr -= ind.maxAmmo - ind.ammoStore;
-                    ind.ammoStore = ind.maxAmmo;
+            if (ammoCarr > ammoNeeded()) {
+                for (Aircraft ind : carrier) {
+                    if (ind.ammoStore < ind.maxAmmo) {
+                        ammoCarr -= ind.maxAmmo - ind.ammoStore;
+                        ind.ammoStore = ind.maxAmmo;
+                    }
+                }
+            } else {
+                for (Aircraft ind : carrier) {
+                    if (ind.ammoStore < ind.maxAmmo && ind.priority) {
+                        ammoCarr -= ind.maxAmmo - ind.ammoStore;
+                        ind.ammoStore = ind.maxAmmo;
+                    }
+                }
+                for (Aircraft ind : carrier) {
+                    if (ind.ammoStore < ind.maxAmmo) {
+                        ammoCarr -= ind.maxAmmo - ind.ammoStore;
+                        ind.ammoStore = ind.maxAmmo;
+                    }
                 }
             }
-        } else {
-            for (Aircraft ind : carrier) {
-                if (ind.ammoStore < ind.maxAmmo && ind.priority) {
-                    ammoCarr -= ind.maxAmmo - ind.ammoStore;
-                    ind.ammoStore = ind.maxAmmo;
-                }
-            }
-            for (Aircraft ind : carrier) {
-                if (ind.ammoStore < ind.maxAmmo) {
-                    ammoCarr -= ind.maxAmmo - ind.ammoStore;
-                    ind.ammoStore = ind.maxAmmo;
-                }
-            }
-        }
+
     }
 }

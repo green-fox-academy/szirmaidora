@@ -1,9 +1,10 @@
 package Organization;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         ArrayList<Person> people = new ArrayList<>();
         ArrayList<Student> students = new ArrayList<>();
         ArrayList<Mentor> mentors = new ArrayList<>();
@@ -25,6 +26,18 @@ public class Main {
         sponsors.add(sponsor);
         Sponsor elon = new Sponsor("Elon Musk", 46, "male", "SpaceX");
         sponsors.add(elon);
+        Student johny = new Student("John", 20,"male","BME");
+
+        Student johnTheClone = john.clone();
+        System.out.println(johnTheClone.toString());
+        System.out.println("***************");
+       /* new Student try {
+            Student johnTheClone = johny.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(john);*/
+
 
         student.skipDays(3);
 

@@ -1,4 +1,4 @@
-public class ToDoPrint {
+public class ToDoPrint implements Comparable{
     public static void main(String... args){
         String todoText = " - Buy milk\n";
         // Add "My todo:" to the beginning of the todoText
@@ -23,5 +23,10 @@ public class ToDoPrint {
         //      - Diablo
 
         System.out.println(todoText);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
