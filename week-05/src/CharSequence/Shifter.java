@@ -1,11 +1,14 @@
 package CharSequence;
 
-public class Gnirts implements CharSequence {
+public class Shifter implements CharSequence{
     String toChange;
-    public Gnirts (String toChange) {
+    int shifter;
+    public Shifter (String toChange, int shifter) {
         this.toChange = toChange;
+        this.shifter = shifter;
 
     }
+
     @Override
     public int length() {
         return 0;
@@ -13,11 +16,11 @@ public class Gnirts implements CharSequence {
 
     @Override
     public char charAt(int index) {
-        return toChange.charAt(toChange.length()-1-index);
+        return toChange.charAt(index + shifter);
     }
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return toChange.subSequence(toChange.length()-1-end, toChange.length() - start);
+        return toChange.subSequence(start + shifter, end + shifter);
     }
 }
