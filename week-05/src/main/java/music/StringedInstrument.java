@@ -11,8 +11,8 @@ public abstract class StringedInstrument extends Instrument {
     }
 
 
-    @Override
+/*    @Override
     public void play() {
 
-    }
+    }*/
 }

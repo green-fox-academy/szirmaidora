@@ -42,10 +42,7 @@ public class Extension {
 
                 } else {length++;}
                 vowels.add(c);
-
-
             }
-
         }
         return teve;
     }

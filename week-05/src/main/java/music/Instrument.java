@@ -10,7 +10,7 @@ public abstract class Instrument {
     public Instrument() {
 
     }
-    public void play () {
+  /*  public void play () {
         System.out.println(this.sound);
-    }
+    }*/
 }

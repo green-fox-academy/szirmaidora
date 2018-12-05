@@ -37,9 +37,11 @@ public class Plant {
     return needs;
     }
 
+
     public String introduce() {
-        String intro = "The " + color + " " + getClass().getSimpleName() + " " + needsW();
+        String intro = "The " + color + " " + getClass().getSimpleName() + " " + (needsWater() ? "needs water" : "does not need water");
         return intro;
     }
+
 
 }

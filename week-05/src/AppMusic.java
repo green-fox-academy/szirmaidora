@@ -1,3 +1,4 @@
+/*
 import main.java.music.*;
 
 public class AppMusic {
@@ -7,13 +8,17 @@ public class AppMusic {
 
         System.out.println("Test 1, create Electric Guitar, Bass Guitar and Violin with default strings.");
         ElectricGuitar guitar = new ElectricGuitar();
-       /* BassGuitar bassGuitar = new BassGuitar();
-        Violin violin = new Violin();*/
+       */
+/* BassGuitar bassGuitar = new BassGuitar();
+        Violin violin = new Violin();*//*
+
 
         System.out.println("Test 1 Play");
         guitar.play();
-   /*     bassGuitar.play();
-        violin.play();*/
+   */
+/*     bassGuitar.play();
+        violin.play();*//*
+
 
         System.out.println("Test 2, create Electric Guitar, Bass Guitar with 7 and 5 strings .");
         ElectricGuitar guitar2 = new ElectricGuitar(7);
@@ -24,4 +29,4 @@ public class AppMusic {
   //      bassGuitar2.play();
     }
 
-}
+}*/
