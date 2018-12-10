@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Webshop</title>
+    <link rel="stylesheet" href="/Webshop.css" />
+</head>
+<body>
+    <h1> My Shop </h1>
+    <table> 
+        <thead>
+            <tr>
+                <th>
+   <button class="submitbutton" type="button" value="Only available">Only available</button>
+                </th>
+                 <th> 
+   <button class="submitbutton" type="button"value="Cheapest first">Cheapest first</button>
+                </th>
+                 <th> 
+   <button class="submitbutton" type="button"value="Contains Nike">Contains Nike</button>
+                </th>
+                 <th> 
+   <button class="submitbutton" type="button"value="Average stock">Average stock</button>
+                </th>
+                 <th> 
+   <button class="submitbutton" type="button"value="Most expensive available">Most expensive available</button>
+                </th>
+        </tr>
+        </thead>
+    </table>
+  <label for='search'>Search for</label>
+  <input id='search' name='search' type='text' placeholder='...something like Nike'/>
+   <button class="submitbutton" for = "search "type="button">Search</button>
+        <table>
+        <thead>
+            <tr> 
+                <th> Name </th>
+                 <th> Description </th>
+                <th> Price </th>
+                 <th> Quantity of stock </th>
+            </tr>
+        </thead>
+        <tbody>
+<tr th:each="shopItem : ${shopItems}">
+      <td th:text="${shopItem.getName()}"></td>
+    <td th:text="${shopItem.getDescription()}"></td>
+    <td th:text="${shopItem.getPrice()}"></td>
+    <td th:text="${shopItem.getQuantityOfStock()}"></td>
+        </tbody>
+    </table>
+</body>
+</html>
