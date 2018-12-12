@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +15,11 @@ public class BankController {
 
     public BankController() {
         bankAccounts = new ArrayList<>();
-        bankAccounts.add(new BankAccount("Simba", 2000, "lion", true));
-        bankAccounts.add(new BankAccount("Timon", 4000, "meerkat", false));
-        bankAccounts.add(new BankAccount("Pumba", 1000, "warthog", false));
-        bankAccounts.add(new BankAccount("Nala", 3000, "lioness", false));
+        bankAccounts.add(new BankAccount("Simba", 2000, "lion", true, 0));
+        bankAccounts.add(new BankAccount("Timon", 4000, "meerkat", false, 1));
+        bankAccounts.add(new BankAccount("Pumba", 1000, "warthog", false, 1));
+        bankAccounts.add(new BankAccount("Nala", 3000, "lioness", false, 0));
     }
-
 
     @GetMapping(path = "/show")
     public String showPage(Model model) {
@@ -33,4 +33,5 @@ public class BankController {
         model.addAttribute("html2", "<b>Enjoy yourself!</b>");
         return "html";
     }
+    
 }

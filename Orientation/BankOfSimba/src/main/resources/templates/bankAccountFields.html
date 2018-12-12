@@ -9,12 +9,21 @@
 <table>
     <thead> Clients</thead>
     <tbody>
-    <tr>
-        <td>
-            <div th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}">
-                <h1 th:text="|*{name}   *{#numbers.formatDecimal(balance,1,2,'COMMA')} zebra  *{animalType} ${bankAccountStat.index}|"></h1>
-            </div>
+    <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}"
+        th:style="*{king} ? 'color:pink' : 'color:black'">
+        <td th:text="*{name}"></td>
+        <td th:text="|*{#numbers.formatDecimal(balance,1,2,'COMMA')} zebra|"></td>
+        <td th:text=" *{animalType}"></td>
+        <td th:text="${bankAccountStat.index}"></td>
+        <td th:if="*{king}">KING</td>
+        <td th:unless="*{king}"> </td>
+        <td th:switch="*{badGuy}">
+            <span th:case="0">Badbad Guy</span>
+            <span th:case="1">Goodboy</span>
         </td>
+        <td>   <input type="checkbox" id="scales" name="scales"
+                      checked>
+            <label for="scales">Raise balance</label></td>
     </tr>
     </tbody>
 </table>
