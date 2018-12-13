@@ -33,5 +33,5 @@ public class BankController {
         model.addAttribute("html2", "<b>Enjoy yourself!</b>");
         return "html";
     }
-    
+
 }
