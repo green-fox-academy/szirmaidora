@@ -6,7 +6,7 @@
 </head>
 <body>
 <div><a th:href="@{useful/colored}"> Random colored page</a></div>
-<div><a href="@{useful/email}"> E-mail</a></div>
-<div><a href="@{/useful/email?email=is@this.valid}"> E-mailExample</a></div>
+<div><a th:href="@{useful/email}"> E-mail</a></div>
+<div><a th:href="|@{/useful/email?email=is@this.valid}|"> E-mailExample</a></div>
 </body>
 </html>
