@@ -9,12 +9,12 @@ import javax.persistence.Id;
 public class ToDo {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
-    String title;
+    private String title;
 
-    boolean urgent;
-    boolean done;
+    private boolean urgent;
+    private boolean done;
     public ToDo () {
         urgent = false;
         done = false;
@@ -31,6 +31,14 @@ public class ToDo {
         this.done = done;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Long getId() {
         return id;
     }
@@ -39,11 +47,11 @@ public class ToDo {
         return title;
     }
 
-    public boolean isUrgent() {
+    public boolean getUrgent() {
         return urgent;
     }
 
-    public boolean isDone() {
+    public boolean getDone() {
         return done;
     }
 }

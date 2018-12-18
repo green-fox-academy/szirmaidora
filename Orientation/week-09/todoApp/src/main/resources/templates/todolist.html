@@ -14,11 +14,12 @@
     <th>URGENT</th>
     </thead>
     <tbody>
-    <tr th:block th:each="todo : ${todo}" th:object="${todo}">
-        <td th:text="${todo.getId()}"></td>
-        <td th:text="${todo.getTitle()}"></td>
-        <td th:text="${todo.isDone()}"></td>
-        <td th:text="${todo.isUrgent()}"></td>
+    <tr th:block th:each="todoh : ${todo}" th:object="${todo}">
+        <td th:text="${todoh.id}"></td>
+        <td th:text="${todoh.title}"></td>
+        <td th:text="${todoh.done}"></td>
+        <td th:text="${todoh.urgent}"></td>
+        <td><button type="button">Delete</button></td>
     </tr>
     </tbody>
 </table>
