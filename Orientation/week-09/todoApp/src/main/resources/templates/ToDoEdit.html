@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Edit</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="container">
+<div class="container text-center">
+    <h1>Edit Todo:</h1>
+</div>
+<form th:action="@{/todo/edit}" th:object="${modelEdit}" method="post" class="container text-center">
+    <input hidden type="text" name="id" th:field="*{id}">
+    <label>Edit your todo:</label>
+    <input type="text" th:field="*{title}">
+    <label>is it done?</label>
+    <input type="checkbox" th:field="*{done}">
+    <label>is it urgent?</label>
+    <input type="checkbox" th:field="*{urgent}">
+    <br>
+    <input type="submit" value="Submit" class="btn btn-primary">
+    <br>
+    <a href="/todo/list">cancel</a>
+</form>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
+</html>

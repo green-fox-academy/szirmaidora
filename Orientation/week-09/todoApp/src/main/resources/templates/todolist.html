@@ -6,6 +6,12 @@
 </head>
 <body>
 <h1>Todos for today</h1>
+<h4>List of Assignees</h4>
+<form th:action="@{/todo/list}" th:method="get">
+    <label>Search..</label>
+    <input th:type="text" name="searchItem">
+    <input type="submit">
+</form>
 <table>
     <thead>
     <th>ID</th>
@@ -19,7 +25,8 @@
         <td th:text="${todoh.title}"></td>
         <td th:text="${todoh.done}"></td>
         <td th:text="${todoh.urgent}"></td>
-        <td><button type="button">Delete</button></td>
+        <td><a th:href="@{{id}/delete(id=${todoh.id})}" >delete</a></td>
+        <td><a th:href="@{{id}/edit(id=${todoh.id})}" >edit</a></td>
     </tr>
     </tbody>
 </table>

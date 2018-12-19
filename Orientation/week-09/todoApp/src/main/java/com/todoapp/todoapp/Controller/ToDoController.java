@@ -20,13 +20,31 @@ public class ToDoController implements CommandLineRunner {
     }
 
     @GetMapping("/")
-    public String listing(@RequestParam(value = "isActive", required = false) String param1, Model model) {
-        if (param1.isEmpty()) {
-            model.addAttribute("todo", repository.findAllByDone(true));
-        } else if (param1.equals("true")) {
+    public String listing(@RequestParam(name = "isActive", required = false) Boolean isActive, Model model) {
+        if (isActive == null) {
             model.addAttribute("todo", repository.findAll());
+        } else if (isActive) {
+            model.addAttribute("todo", repository.findAllByDone(!isActive));
         }
         return "todolist";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        repository.deleteById(id);
+        return "redirect:/todo/list";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String editGet(@PathVariable Long id, Model model) {
+        model.addAttribute("modelEdit", repository.findById(id).get());
+        return "ToDoEdit";
+    }
+
+    @PostMapping("/edit")
+    public String editPost(@ModelAttribute(name = "modelEdit") ToDo toDo) {
+        repository.save(toDo);
+        return "redirect:list";
     }
 
     @GetMapping("/create")
@@ -42,13 +60,16 @@ public class ToDoController implements CommandLineRunner {
         return "redirect:/todo/list";
     }
 
-
-    @GetMapping(value = {"/list"})
-    public String list(Model model) {
-        model.addAttribute("todo", repository.findAll());
-        return "todolist";
+    @GetMapping("/list")
+    public String list(@RequestParam(name = "searchItem", required = false) String searchItem, Model model) {
+        if (searchItem == null) {
+            model.addAttribute("todo", repository.findAll());
+            return "todolist";
+        } else {
+            model.addAttribute("todo",repository.findAllByTitleByDescription(searchItem));
+            return "todolist";
+        }
     }
-
 
     @Override
     public void run(String... args) throws Exception {
