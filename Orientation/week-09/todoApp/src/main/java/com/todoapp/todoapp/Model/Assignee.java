@@ -17,6 +17,9 @@ public class Assignee {
         this.name = name;
         this.email = email;
     }
+    public Assignee(){
+
+    }
 
     public String getName() {
         return name;

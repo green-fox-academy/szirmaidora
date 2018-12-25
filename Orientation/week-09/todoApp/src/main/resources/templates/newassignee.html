@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Create</title>
 </head>
 <body>
-$END$
+<h1> Create new assignees</h1>
+<form th:action="@{/assignee/addassignee}" method="post" th:object="${newassignee}">
+    <label th:for="name">What is your name?</label>
+    <input type="text" th:field="*{name}">
+    <label th:for="email">What is your e-mail?</label>
+    <input type="email" th:field="*{email}">
+    <input type="submit" value="Mehet">
+</form>
 </body>
 </html>
