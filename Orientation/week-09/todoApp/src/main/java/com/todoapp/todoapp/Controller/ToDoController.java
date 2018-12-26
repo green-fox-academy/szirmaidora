@@ -26,10 +26,8 @@ public class ToDoController implements CommandLineRunner {
     public String listing(@RequestParam(name = "isActive", required = false) Boolean isActive, Model model) {
         if (isActive == null) {
             model.addAttribute("todo", repository.findAll());
-            model.addAttribute("assignee",assigneeRepository.findAll());
         } else if (isActive) {
             model.addAttribute("todo", repository.findAllByDone(!isActive));
-            model.addAttribute("assignee",assigneeRepository.findAll());
         }
         return "todolist";
     }
@@ -43,12 +41,13 @@ public class ToDoController implements CommandLineRunner {
     @GetMapping("/{id}/edit")
     public String editGet(@PathVariable Long id, Model model) {
         model.addAttribute("modelEdit", repository.findById(id).get());
-        model.addAttribute("assigneelist", assigneeRepository.findAll());
+        model.addAttribute("assigneelist",assigneeRepository.findAll());
         return "ToDoEdit";
     }
 
     @PostMapping("/edit")
-    public String editPost(@ModelAttribute(name = "modelEdit") ToDo toDo) {
+    public String editPost(@ModelAttribute(name = "modelEdit") ToDo toDo, @ModelAttribute(value = "assig") String assig) {
+        toDo.setAssignee(assigneeRepository.findByName(assig));
         repository.save(toDo);
         return "redirect:list";
     }
@@ -70,11 +69,9 @@ public class ToDoController implements CommandLineRunner {
     public String list(@RequestParam(name = "searchItem", required = false) String searchItem, Model model) {
         if (searchItem == null) {
             model.addAttribute("todo", repository.findAll());
-            model.addAttribute("assignee",assigneeRepository.findAll());
             return "todolist";
         } else {
             model.addAttribute("todo",repository.findAllByTitleByDescription(searchItem));
-            model.addAttribute("assignee",assigneeRepository.findAll());
             return "todolist";
         }
     }

@@ -18,7 +18,7 @@
     <label>is it urgent?</label>
     <input type="checkbox" th:field="*{urgent}">
     <br>
-    <select name="assignees" >
+    <select name="assig" >
         <option th:each="assignee : ${assigneelist}" th:object="${assignee}" th:text="*{name}"> </option>
     </select>
     <input type="submit" value="Submit" class="btn btn-primary">

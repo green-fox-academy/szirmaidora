@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class ToDo {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String description;
     private String title;
@@ -14,16 +14,19 @@ public class ToDo {
     private boolean urgent;
     private boolean done;
 
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Assignee assignee;
-    public ToDo () {
+
+    public ToDo() {
         urgent = false;
         done = false;
     }
-    public ToDo (String title) {
+
+    public ToDo(String title) {
 
     }
-    public ToDo (String title, String content, String description) {
+
+    public ToDo(String title, String content, String description) {
         this.title = title;
         this.content = content;
         this.description = description;
@@ -76,4 +79,13 @@ public class ToDo {
     public boolean getDone() {
         return done;
     }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
 }

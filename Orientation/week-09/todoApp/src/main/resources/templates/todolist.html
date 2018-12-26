@@ -28,8 +28,8 @@
         <td th:text="${todoh.urgent}"></td>
         <td><a th:href="@{{id}/delete(id=${todoh.id})}" >delete</a></td>
         <td><a th:href="@{{id}/edit(id=${todoh.id})}" >edit</a></td>
-        <br>
-        <td th:text="${assignee.name}"></td>
+        <td th:if="${todoh.getAssignee() != null} " th:text="${todoh.getAssignee().getName()}"></td>
+        <td th:unless="${todoh.getAssignee() != null} " th:text="'No Assignee assigned'"></td>
     </tr>
     </tbody>
 </table>
