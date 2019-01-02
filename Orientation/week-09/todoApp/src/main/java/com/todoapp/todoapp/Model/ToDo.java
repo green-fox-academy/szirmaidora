@@ -15,8 +15,11 @@ public class ToDo {
     private String content;
     private boolean urgent;
     private boolean done;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private Date date = new Date();
+    //@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    //private Date date = new Date();
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateAdded;
+    private String dueDate;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Assignee assignee;
@@ -91,11 +94,21 @@ public class ToDo {
     public void setAssignee(Assignee assignee) {
         this.assignee = assignee;
     }
-    public Date getDate (){
-        return date;
+
+    public Date getDateAdded() {
+        return dateAdded;
     }
-    public void setDate(Date date) {
-        this.date = date;
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 
 }

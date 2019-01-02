@@ -9,6 +9,7 @@
 <h1>Todos for today</h1>
 <h4>List of ToDos</h4>
 <h4><a href="/assignee/listassignees">Assignees</a></h4>
+<h4><a href="/todo/create">Add new todo</a></h4>
 <form th:action="@{/todo/list}" th:method="get">
     <label>Search..</label>
     <input th:type="text" name="searchItem">
@@ -20,6 +21,8 @@
     <th>ACTION</th>
     <th>DONE</th>
     <th>URGENT</th>
+    <th>DATE ADDED</th>
+    <th>DUE DATE</th>
     </thead>
     <tbody>
     <tr th:block th:each="todoh : ${todo}" th:object="${todo}">
@@ -27,10 +30,14 @@
         <td th:text="${todoh.title}"></td>
         <td th:text="${todoh.done}"></td>
         <td th:text="${todoh.urgent}"></td>
+        <td th:text="${todoh.dateAdded}"></td>
+        <td th:text="${todoh.dueDate}"></td>
         <td><a th:href="@{{id}/delete(id=${todoh.id})}" >delete </a></td>
         <td><a th:href="@{{id}/edit(id=${todoh.id})}" >edit </a></td>
-        <td th:if="${todoh.getAssignee() != null} " th:text="${todoh.getAssignee().getName()}"></td>
-        <td th:unless="${todoh.getAssignee() != null} " th:text="'No Assignee assigned'"></td>
+        <td><a th:if="${todoh.getAssignee() != null}" th:href="@{/assignee/{id}/show-todos(id=${todoh.getAssignee().getId()})}"
+           th:text="${todoh.getAssignee().getName()}"></a>
+        <span th:unless="${todoh.getAssignee() != null} " th:text="'No Assignee assigned'"></span>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -23,8 +23,15 @@
         <td th:text="*{id}"></td>
         <td th:text="*{name}"></td>
         <td th:text="*{email}"></td>
-        <td><a th:href="@{{id}/delete(id=${assignee.id})}" >delete</a></td>
-        <td><a th:href="@{{id}/edit(id=${assignee.id})}" >edit</a></td>
+        <td>
+            <a th:href="@{{id}/delete(id=${assignee.id})}">delete</a>
+        </td>
+        <td>
+            <a th:href="@{{id}/edit(id=${assignee.id})}">edit</a>
+        </td>
+        <td>
+            <a th:href="@{/assignee/{id}/show-todos(id=${assignee.id})}">Show Todos</a>
+        </td>
     </tr>
     </tbody>
 </table>
