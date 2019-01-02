@@ -1,6 +1,9 @@
 package com.todoapp.todoapp.Model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class ToDo {
@@ -10,9 +13,10 @@ public class ToDo {
     private String description;
     private String title;
     private String content;
-
     private boolean urgent;
     private boolean done;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private Date date = new Date();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Assignee assignee;
@@ -86,6 +90,12 @@ public class ToDo {
 
     public void setAssignee(Assignee assignee) {
         this.assignee = assignee;
+    }
+    public Date getDate (){
+        return date;
+    }
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }

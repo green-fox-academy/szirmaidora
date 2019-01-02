@@ -88,3 +88,28 @@ public class ToDoController implements CommandLineRunner {
         repository.save(entity1);*/
     }
 }
+
+/*
+    @PostMapping("/delete")
+    public String deleteTodo(@ModelAttribute Todo todo) {
+        todoService.deleteTodo(todo);
+        return "redirect:/todo/";
+    }
+<tr th:each="todo : ${todos}">
+<td th:text="${todo.id}"></td>
+<td th:text="${todo.title}"></td>
+<td th:text="${todo.done}"></td>
+<td th:text="${todo.urgent}"></td>
+<td>
+<form th:action="@{/todo/delete}" method="post">
+<input type="hidden" name="id" th:value="${todo.id}">
+<input type="submit" value="delete">
+</form>
+</td>
+</tr>
+
+
+
+        Collapse 
+        9:30 PM
+*/

@@ -44,4 +44,11 @@ public class Assignee {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public List<ToDo> getTodoList () {
+        return todos;
+    }
+    public void setTodoList (List<ToDo> todos) {
+        this.todos = todos;
+    }
 }
