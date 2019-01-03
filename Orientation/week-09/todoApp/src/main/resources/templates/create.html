@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <h1> Create new todos</h1>
@@ -13,7 +14,11 @@
     <input type="checkbox" name="done" id="done">
     <label for="urgent">Urgent</label>
     <input type="checkbox" name="urgent" id="urgent">
+    <label for="date" th:text="date">Due Date</label>
+    <input type="date" th:value="*{date}" name="date" id="date">
     <input type="submit" value="Mehet">
 </form>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

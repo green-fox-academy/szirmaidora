@@ -21,6 +21,8 @@
     <select name="assig" >
         <option th:each="assignee : ${assigneelist}" th:object="${assignee}" th:text="*{name}"> </option>
     </select>
+    <label for="date" th:text="date">Due Date</label>
+    <input type="date" th:value="*{date}" name="date" id="date">
     <input type="submit" value="Submit" class="btn btn-primary">
     <br>
     <a href="/todo/list">cancel</a>

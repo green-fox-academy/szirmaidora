@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignee-todos</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <h1 th:text="|Todos for ${assignee.name}|"></h1>
 <ul th:each="todo : ${assignee.getTodoList()}">
     <li th:text="${todo.title}"></li>
 </ul>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

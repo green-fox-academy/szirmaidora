@@ -10,15 +10,15 @@ public class Assignee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, mappedBy = "assignee")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.DETACH, mappedBy = "assignee")
     private List<ToDo> todos;
 
     public Assignee(String name, String email) {
         this.name = name;
         this.email = email;
     }
-    public Assignee(){
 
+    public Assignee() {
     }
 
     public String getName() {
@@ -45,10 +45,16 @@ public class Assignee {
         this.id = id;
     }
 
-    public List<ToDo> getTodoList () {
+    public List<ToDo> getTodoList() {
         return todos;
     }
-    public void setTodoList (List<ToDo> todos) {
+
+    public void setTodoList(List<ToDo> todos) {
         this.todos = todos;
     }
+
+/*   @PreRemove
+    public void setNull() {
+        todos.forEach(a -> a.setAssignee(null));
+    }*/
 }
