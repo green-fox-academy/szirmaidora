@@ -7,8 +7,12 @@
 <body>
 <div><a href="/information"> Information </a></div>
 <p>Food</p>
-<select name="thefood" >
-    <option th:each="food : ${foodlist}" th:object="${food}"> </option>
+<select name="thefood">
+    <option th:each="food : ${foodlist}"  th:text="${food}"> </option>
+</select>
+<p>Drink</p>
+<select name="thedrink">
+    <option th:each="drink : ${drinklist}"  th:text="${drink}"> </option>
 </select>
 </body>
 </html>
