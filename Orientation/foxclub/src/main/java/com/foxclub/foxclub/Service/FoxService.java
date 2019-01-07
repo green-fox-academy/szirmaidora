@@ -43,19 +43,19 @@ public class FoxService {
         foxes.add(new Fox(name));
     }
 
-    public Fox findFox(String name) {
+/*    public Fox findFox(String name) {
         Fox fox = foxes.stream().filter(x -> x.getName()
                 .equals(name))
                 .findFirst()
                 .orElse(null);
         return fox;
-    }
-/*    public Optional<Fox> findFox(String name) {
+    }*/
+    public Optional<Fox> findFox(String name) {
         for (Fox fox : foxes) {
             if (fox.getName().equals(name)) {
                 return Optional.of(fox);
             }
         }
         return Optional.empty();
-    }*/
+    }
 }

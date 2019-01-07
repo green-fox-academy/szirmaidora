@@ -14,5 +14,8 @@
 <select name="thedrink">
     <option th:each="drink : ${drinklist}"  th:text="${drink}"> </option>
 </select>
+<form th:action="@{/nutritionstore}" method="post" id="form1">
+<input type="submit" value="Go" class="sp">
+</form>
 </body>
 </html>

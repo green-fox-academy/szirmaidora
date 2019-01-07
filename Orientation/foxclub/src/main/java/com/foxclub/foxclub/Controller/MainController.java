@@ -1,6 +1,7 @@
 package com.foxclub.foxclub.Controller;
 
 import com.foxclub.foxclub.Model.Fox;
+import com.foxclub.foxclub.Repository.FoxRepository;
 import com.foxclub.foxclub.Service.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,41 +14,41 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MainController {
+    FoxRepository foxRepository;
     FoxService foxService;
 
     @Autowired
-    public MainController(FoxService foxService) {
+    public MainController(FoxRepository foxRepository, FoxService foxService) {
+        this.foxRepository = foxRepository;
         this.foxService = foxService;
     }
 
     @GetMapping({"/"})
     public String index(@RequestParam(name = "name", required = false) String name, Model model) {
-        if(name == null){
-            return "Login";
+        if (name == null) {
+            return "redirect:/login";
+        } else {
+            model.addAttribute("fox", foxRepository.findByName(name));
+            return "index";
         }
-        model.addAttribute("fox", foxService.findFox(name));
-        return "index";
     }
 
     @GetMapping(path = "/login")
-    public String login(Model model, String name) {
-        model.addAttribute("name", name);
+    public String login() {
         return "Login";
     }
 
     @PostMapping("/login")
     public String loging(@RequestParam(name = "name", required = true) String name, RedirectAttributes redirectAttributes) {
-        foxService.saveFox(new Fox(name));
+        foxRepository.save(new Fox(name));
         redirectAttributes.addAttribute("name", name);
-        if (foxService.findFox(name) == null){
-            foxService.addFox(name);
-        }
         return "redirect:/";
     }
+
     @GetMapping("/nutritionstore")
-    public String feed (Model model){
-        model.addAttribute("foodlist",foxService.fillFoodList());
-        model.addAttribute("drinklist",foxService.fillDrinkList());
+    public String feed(Model model, @PathVariable String name) {
+        model.addAttribute("foodlist", foxService.fillFoodList());
+        model.addAttribute("drinklist", foxService.fillDrinkList());
         return "nutritionstore";
     }
 }

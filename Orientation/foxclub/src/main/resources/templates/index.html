@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Main</title>
 </head>
-<body th:object="${fox}">
-<div><a href="/information"> Information </a></div>
-<div><a href="/nutritionstore"> Nutritionstore </a></div>
+<body >
+<div><a href="@{/information/}"> Information </a></div>
+<a th:href="|/nutritionstore/?name=${fox.name}|">nutrition</a>
 <img src="greenfox.png" alt="Greenfox">
 <p>This is</p>
 <table>
     <tr>
-        <td th:text="${name}"></td>
+        <td th:text="${fox.getName()}"></td>
     </tr>
 </table>
 </body>
