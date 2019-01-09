@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>URL shortener</h1>
+<form th:action="@{/url/save-link}" method="post">
+    <label th:for="url">What is the url?</label>
+    <input type="text">
+    <label th:for="urlAlias">What is the url?</label>
+    <input type="text">
+    <input type="submit" value="Mehet">
+</form>
+</body>
+</html>
