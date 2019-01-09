@@ -29,4 +29,7 @@ public class UrlService {
     public List<Url> listAll () {
         return urlRepo.findAll();
     }
+    public void deleteUrl (String alias){
+        urlRepo.deleteByInputAlias(alias);
+    }
 }
